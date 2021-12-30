@@ -3,33 +3,41 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link
-      rel="icon"
-      type="image/x-icon"
-      href="https://www.pngarts.com/files/1/Human-Brain-PNG-Photo.png"
-    />
-    <link
-      rel="stylesheet"
-      crossorigin="anonymous"
-      href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
-      integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p"
-    />
     <title>Document</title>
   </head>
   <style>
     /* Basic */
+    :root {
+      --userText: darkslateblue;
+      --userBox: lightpink;
+
+      --botText: darkolivegreen;
+      --botBox: lightgray;
+
+      --chatInput: lightgreen;
+      --second: lightgray;
+    }
+
     * {
-      padding: 0%;
       margin: 0%;
+      padding: 0%;
     }
 
     /* Container */
     #chatbotContainer {
       flex-direction: column;
       margin-left: auto;
-      display: flex;
+      display: none;
 
-      position: relative;
+      position: fixed;
+      z-index: 999;
+      right: 50px;
+      top: 10px;
+
+      border: 1px solid var(--second);
+      border-radius: 8px;
+      overflow-y: auto;
+      height: 90vh;
       width: 40%;
     }
 
@@ -38,7 +46,7 @@
       display: flex;
       flex-direction: column;
 
-      display: absolute;
+      padding: 8px 0;
       right: 0;
     }
 
@@ -59,7 +67,7 @@
       width: 80%;
     }
     .message figure {
-      background-color: lightgray;
+      background-color: var(--second);
       border-radius: 35%;
       padding: 0.5%;
     }
@@ -75,9 +83,9 @@
     .userMessage p {
       padding: 1.2%;
       border-radius: 8px;
-      color: darkslateblue;
+      color: var(--userText);
       justify-content: flex-end;
-      background-color: lightpink;
+      background-color: var(--userBox);
     }
 
     /* Bot messages */
@@ -87,24 +95,25 @@
     .botMessage p {
       padding: 1.2%;
       border-radius: 8px;
-      color: darkolivegreen;
+      color: var(--botText);
       justify-content: flex-start;
-      background-color: lightblue;
+      background-color: var(--botBox);
     }
 
     /* Chat input */
     #chatInput {
+      margin-top: auto;
       display: flex;
     }
     #chatInput article {
       width: 100%;
       padding: 0.8% 1.2%;
-      background-color: lightgreen;
+      background-color: var(--chatInput);
     }
     #chatInput article input {
-      width: 90%;
+      width: 88%;
       border: none;
-      padding: 0.5% 0.5%;
+      padding: 0.8% 0.5%;
       border-radius: 8px;
       margin-left: 5px;
     }
@@ -116,27 +125,21 @@
 
     /* Bot styling */
     #logo {
-      display: flex;
-      justify-content: flex-end;
-
-      position: relative;
-    }
-    #logo figure {
-      right: 2%;
-      position: absolute;
-
-      border: 1px solid black;
-      background-color: lightgray;
-      border-radius: 50%;
-      padding: 0.5%;
+      position: fixed;
+      z-index: 999;
+      bottom: 10px;
+      right: 10px;
     }
     #logo figure img {
       height: 35px;
       width: 40px;
+
+      padding: 2%;
     }
   </style>
   <body>
     <!--Chat-->
+
     <div id="chatbotContainer">
       <section id="chatbot">
         <article class="botMessage message">
@@ -144,33 +147,19 @@
             <img
               alt="Bot"
               src="https://i.pinimg.com/originals/2c/fc/93/2cfc93d7665f5d7728782700e50596e3.png"
-              srcset="
-                https://i.pinimg.com/originals/2c/fc/93/2cfc93d7665f5d7728782700e50596e3.png
-              "
+              srcset=""
             />
           </figure>
           <p>Hola, soy libro ¿En que puedo ayudarte?</p>
-        </article>
-        <article class="userMessage message">
-          <p>¿En que año nacio Bolivar?</p>
-          <figure>
-            <img
-              alt="User"
-              src="https://cdn.pixabay.com/photo/2021/02/12/07/03/red-icon-6007530_1280.png"
-              srcset="
-                https://cdn.pixabay.com/photo/2021/02/12/07/03/red-icon-6007530_1280.png
-              "
-            />
-          </figure>
         </article>
       </section>
       <section id="chatInput">
         <article>
           <input
-            placeholder="Hola, escribe tu consulta"
             type="text"
             name="message"
             id="userMessageInput"
+            placeholder="Hola, escribe tu consulta"
           />
           <button id="sendButton">
             <i class="fas fa-paper-plane"></i>
@@ -181,7 +170,6 @@
         </article>
       </section>
     </div>
-
     <!--Logo-->
     <section id="logo">
       <figure>
@@ -192,5 +180,6 @@
         />
       </figure>
     </section>
+    <script type="module" src="./index.js" defer></script>
   </body>
 </html>
