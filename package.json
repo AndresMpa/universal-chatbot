@@ -1,0 +1,25 @@
+{
+  "name": "universal-chatbot",
+  "version": "1.0.0",
+  "description": "This is an universal chat bot, it can be added wherever using the CDN",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AndresMpa/universal-chatbot.git"
+  },
+  "keywords": [
+    "node",
+    "chatbot",
+    "cdn",
+    "js"
+  ],
+  "author": "AndresMpa",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AndresMpa/universal-chatbot/issues"
+  },
+  "homepage": "https://github.com/AndresMpa/universal-chatbot#readme"
+}
